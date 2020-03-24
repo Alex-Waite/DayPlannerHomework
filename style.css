@@ -1,0 +1,45 @@
+/* Reusable Resources */
+
+.backgroundBlend {
+    background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+}
+
+.testPurposes {
+    border-radius: 10px;
+    padding: 8px;
+    width: 100%;
+}
+
+/* Heading Stuff */
+
+header {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 400%;
+}
+
+header p {
+    font-family: 'Viga', sans-serif;
+    font-size: 150%;
+    margin-top: 1rem;
+}
+
+/* Main Day Area */
+
+.bordering {
+    background-color: steelblue;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0px 0px 4px 1px lightsteelblue;
+    color: white;
+    font-family: 'Spartan', sans-serif;
+    margin-bottom: 1rem;
+}
