@@ -32,11 +32,43 @@
 <script src="script.js"></script>
 
 <script>
-    const currentDayEl = document.querySelector("#currentDay")
-    const timeRowsDiv = document.querySelector(".timeRows")
+    const currentDayEl = $("#currentDay")
+    const timeRowsDiv = $(".timeRows")
 
     function makeTimerows() {
-        currentDayEl.textContent = moment().format('MMMM Do YYYY')
+        // Sets day in header to current day
+        currentDayEl.text(moment().format('MMMM Do YYYY'))
+
+        var outerdiv = document.createElement("div")
+        outerdiv.classList.add("rowHolder")
+
+
+        for (i = 0; i < 23; i++) {
+            let individualRow = document.createElement("div");
+            individualRow.classList.add("row");
+            individualRow.classList.add("alxStyling");
+
+            let rowHour = moment().hour(i)
+            console.log(rowHour)
+
+            let hourSection = document.createElement("div");
+            hourSection.classList.add("col-2");
+            hourSection.classList.add("rowTime");
+
+            let entrySection = document.createElement("input")
+            entrySection.classList.add("col-9");
+            entrySection.classList.add("rowEntry")
+
+            let saveSection = document.createElement("div")
+            saveSection.classList.add("col-1")
+            saveSection.classList.add("rowSave")
+
+
+
+
+        }
+
+
 
     }
     makeTimerows()
