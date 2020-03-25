@@ -43,3 +43,21 @@ header p {
     font-family: 'Spartan', sans-serif;
     margin-bottom: 1rem;
 }
+
+.past {
+    background-image: linear-gradient(to right, red, maroon);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.present {
+    background-image: linear-gradient(to right, lime, lightgreen);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.future {
+    background-image: linear-gradient(to right, #fbd786, orange);
+    border-radius: 20px;
+    text-align: center;
+}
