@@ -16,7 +16,19 @@
     <header class="backgroundBlend text-center">
         <h1>Day Planner</h1>
         <p>Use this calender to help allocate time towards to your daily plans!</p>
-        <span id="currentDay"></span>
+        <div class="row">
+
+            <div class="col-4">
+                <button class="alexBtn btn btn-light float-right" id="prevBtn">Past Day</button>
+            </div>
+            <div class="col-4 textCenter">
+                <h2 id="currentDay"></h2>
+            </div>
+            <div class="col-4">
+                <button class="alexBtn btn btn-light float-left" id="nextBtn">Next Day</button>
+            </div>
+
+        </div>
     </header>
 
     <div class="container timeRows">
@@ -62,7 +74,7 @@
 
             // Displays the Hour and AM/PM on the side
             let hourSection = document.createElement("div");
-            hourSection.classList.add("col-2");
+            hourSection.classList.add("col-1");
             hourSection.classList.add("rowTime");
             hourSection.innerText = rowHour.format("hA")
             let descriptionClass = rowHour.isBefore(moment(), 'hour') ?
@@ -74,7 +86,7 @@
 
             // Displays the text the user has writen and displays it in the middle
             let entrySection = document.createElement("div")
-            entrySection.classList.add("col-9");
+            entrySection.classList.add("col-10");
             entrySection.classList.add("rowEntry");
             entrySection.setAttribute("data-hour", i);
             entrySection.contentEditable = true;
@@ -82,7 +94,7 @@
 
             // Makes a save button and an event listner that runs a save function
 
-            let saveSection = document.createElement("div");
+            let saveSection = document.createElement("button");
             saveSection.classList.add("col-1");
             saveSection.classList.add("rowSave");
             saveSection.textContent = "Save"

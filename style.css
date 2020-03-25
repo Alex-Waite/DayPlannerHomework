@@ -46,18 +46,43 @@ header p {
 
 .past {
     background-image: linear-gradient(to right, red, maroon);
-    border-radius: 20px;
+    border-radius: 7px;
     text-align: center;
 }
 
 .present {
     background-image: linear-gradient(to right, lime, lightgreen);
-    border-radius: 20px;
+    border-radius: 7px;
     text-align: center;
 }
 
 .future {
     background-image: linear-gradient(to right, #fbd786, orange);
+    border-radius: 7px;
+    text-align: center;
+}
+
+.rowSave {
+    text-align: center;
+    color: black;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.rowEntry {
+    color: black;
+    background-color: white;
+    box-shadow: 0px 0px 2px 2px black;
     border-radius: 20px;
+    margin-left: 1%;
+    max-width: 56rem;
+    margin-right: 1%;
+}
+
+.alexBtn {
+    font-family: 'Spartan', sans-serif;
+}
+
+.textCenter {
     text-align: center;
 }
