@@ -84,13 +84,19 @@
                 "future";
             hourSection.classList.add(descriptionClass);
 
+
             // Displays the text the user has writen and displays it in the middle
             let entrySection = document.createElement("div")
             entrySection.classList.add("col-10");
             entrySection.classList.add("rowEntry");
             entrySection.setAttribute("data-hour", i);
             entrySection.contentEditable = true;
-            // Reads if the correlated row is in the past present or future and assigns a class based on the result
+            // Searches storage object for content in current day then hour
+            if (storedObj[moment().format("YYYY-MM-DD")]) {
+                if (storedObj[moment().format("YYYY-MM-DD")][i]) {
+                    entrySection.innerText = storedObj[moment().format("YYYY-MM-DD")][i];
+                }
+            }
 
             // Makes a save button and an event listner that runs a save function
 
@@ -104,7 +110,9 @@
                 let userSave = localStorage.getItem("userData")
                 userSave = JSON.parse(userSave)
 
-                let dataPointer = $(`div[data-hour="${event.currentTarget.dataset.hour}"]`).text
+                // Tried writing this in jQuery $(`div[data-hour="${event.currentTarget.dataset.hour}"]`).text and it didnt work, unsure why
+                let dataPointer = document.querySelector(`div[data-hour="${event.currentTarget.dataset.hour}"]`)
+                    .textContent
 
                 if (!userSave) {
                     userSave = {}
@@ -113,6 +121,10 @@
                 if (!userSave[selectedDay.format("YYYY-MM-DD")]) {
                     userSave[selectedDay.format("YYYY-MM-DD")] = [];
                 }
+                userSave[selectedDay.format("YYYY-MM-DD")][event.currentTarget.dataset.hour] = dataPointer;
+
+                userSave = JSON.stringify(userSave);
+                localStorage.setItem("userData", userSave);
             })
 
             // merging subsection cols to make a row
@@ -131,12 +143,3 @@
 </script>
 
 </html>
-
-<!-- <div class="row">
-            <div class="col-2">
-                <p>7AM</p>
-            </div>
-            <div class="col-10">
-                <input type="text">
-            </div>
-        </div> -->
