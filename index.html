@@ -39,17 +39,16 @@
         // Sets day in header to current day
         currentDayEl.text(moment().format('MMMM Do YYYY'))
 
-        var outerdiv = document.createElement("div")
-        outerdiv.classList.add("rowHolder")
+
 
         // Sets planner up as user had it last 
 
-        var storedStuff = localStorage.getItem("userData")
-        storedStuff = JSON.parse(storedStuff)
+        var storedObj = localStorage.getItem("userData")
+        storedObj = JSON.parse(storedObj)
 
         // If there isnt already a storage object this creates one
-        if (!storedStuff) {
-            storedStuff = {}
+        if (!storedObj) {
+            storedObj = {}
         }
 
         for (i = 0; i < 23; i++) {
@@ -87,7 +86,9 @@
             saveSection.classList.add("rowSave");
             saveSection.textContent = "Save"
             saveSection.setAttribute("data-hour", i);
-            saveSection.addEventListener("click", saveData())
+            saveSection.addEventListener("click", () => {
+                console.log("Saved")
+            })
 
             // merging subsection cols to make a row
             individualRow.appendChild(hourSection)
@@ -102,9 +103,7 @@
 
     }
 
-    function saveData() {
-        console.log("save")
-    }
+
 
 
     makeTimerows()
